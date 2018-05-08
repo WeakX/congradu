@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/W32TeX) (preloaded format=xelatex 2017.9.25)  8 MAY 2018 11:17
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/W32TeX) (preloaded format=xelatex 2017.9.25)  8 MAY 2018 16:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1935,17 +1935,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 67.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
  [1
 
 
 
 ] [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 67.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
  (./GraduPaper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 67.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 67.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 69.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 69.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
  ) 
 Here is how much of TeX's memory you used:
  30837 strings out of 492998
