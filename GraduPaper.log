@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/W32TeX) (preloaded format=xelatex 2017.9.25)  8 MAY 2018 16:46
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/W32TeX) (preloaded format=xelatex 2017.9.25)  9 MAY 2018 16:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1934,23 +1934,23 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [3
 
 
+] [1
+
+
+
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
- [1
-
-
-
-] [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
  (./GraduPaper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 69.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 75.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 75.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
  ) 
 Here is how much of TeX's memory you used:
  30837 strings out of 492998
  592058 string characters out of 6137851
- 653903 words of memory out of 5000000
+ 655903 words of memory out of 5000000
  34491 multiletter control sequences out of 15000+600000
  541010 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
