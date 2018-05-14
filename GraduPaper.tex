@@ -57,9 +57,9 @@
     
     综上所述，基于移动通信网络的数据挖掘对于提升整个电信网络运维管理效率及质量具有较为实际以及深远的意义。在实际研究过程中，对运营商而言，
     大数据意味着对数据的获取、存储、分析、呈现等方式都提出了新的挑战，因此，如何对传统运维方式的这几个方面进行革新成为了运用大数据管理网络
-    关键点。运营商希望将复杂的网络进行高效的管理，对于提升用户感知、网络优化、网络规划等多方面都具有实际的意义。
+    关键点。运营商希望将复杂的网络进行高效的管理，对于提升用户感知、网络优化、网络规划等多方面都具有实际的意义。\\
     \begin{generalfig}[htb]{大数据信息处理框架}{fig:frame}
-		\includegraphics[width=\textwidth]{Figures/frame.png}
+		\includegraphics[width=\textwidth,scale = 0.5]{Figures/frame.png}
 	\end{generalfig}
 
     \subsection{论文内容与成果}
@@ -108,6 +108,9 @@
 
     目前中国移动、中国电信、中国联通三大运营商均加速了自己的大数据平台建设，旨在发挥自身数据价值，将数据优势转化成大数据周边服务，对于运营商提升用户感知、提高管理效率、
     增强流量化经营都起到促进作用。除此之外，各地市级运营商也在积极与高校进行合作，在提升自身技术水平的同时也推动了学术研究的进展，对于科技的进步也具有着重要的意义。
+    与此同时，国外的运营商们也早早开始了大数据建设：美国第二大电信运营商AT\&T收集了用户的位置信息并通过数据挖掘技术对用户行为进行分析，并将其数据打包出售给广告公司以达到
+    精准营销的目的；法国电信根据用户消费行为进行分析，同时结合通话投诉情况对网络结构进行优化；韩国通讯社SK新成立一家公司专门处理大数据业务，目标是提升客户感知，实现精准化
+    营销。
 
     \subsection{数据挖掘相关技术概述}
     \subsubsection{数据采集技术概述}
@@ -131,18 +134,59 @@
     \ Flume的设计是由一个一个的代理（agent）组成的代理网络作为管道，管道两端分别是数据源和目的地。每一个agent由采集器（Source）、传输通道（Channel）、及注入器（Sink）组成。
     采集器负责接收输入数据并将数据送入传输通道；传输通道主要作用是对数据进行缓存，在传输给注入器之前对数据进行缓存，缓存方式可以根据配置文件配置成内存、文件、JDBC等；
     注入器的作用是将数据从传输通道钟读取出来，随后发送给下一个代理或最终目的地（存储空间）。Flume在每一个agent的采集器端和注入器端都采取了transaction的机制，保证信息传输
-    安全稳定，同时Flume支持故障转移（failover）和负载均衡（load balance），当某个agent失效时并不会影响整体系统运行，这也确保了系统运行的稳定
-    和可靠性。
+    安全稳定，同时Flume支持故障转移（failover）和负载均衡（load balance），当某个agent失效时并不会影响整体系统运行，这也确保了系统运行的稳定和可靠性。
+     
     \begin{generalfig}[htb]{Flume组织架构}{fig:flume}
         \includegraphics[width=\textwidth]{Figures/flume.png}
     \end{generalfig}
     \paragraph{2. Splunk Forwarder\\}
     
-    与上文所提到Flume的开源性不同的是，Splunk作为商业化公司所提供的完整数据采集、数据分析、数据呈现的一整套解决方案。其中Forwarder负责数据的收集、清洗
-    变形并发送给
-    \subsubsection{数据呈现形式应用}
+    与上文所提到Flume的开源性不同的是，Splunk作为商业化公司所提供的完整数据采集、数据分析、数据呈现的一整套解决方案。这个方案中包含三个部分：Search Head负责数据的搜索和处理；indexer负责创建数据的索引
+    与数据的存储；Forwarder负责数据的收集、清洗变形并发送给indexer。Splunk内置了对Syslog，TCP/UDP，Spooling的支持，同时，用户可以通过开发Script Input和Modular Input的方式来获取特定的数据。
+    在Splunk提供的软件仓库里有很多成熟的数据采集应用，例如AWS，数据库（DBConnect）等等，可以方便的从云或者是数据库中获取数据进入Splunk的数据平台做分析，同时Forwarder也支持负载均衡。
     
+    \begin{generalfig}[hb]{Splunk组织架构}{fig:splunk} 
+        \includegraphics[scale = 0.55]{Figures/splunk.png}
+    \end{generalfig}
 
+    \subsubsection{数据图表应用场景概述}
+    在运营商日常的网络管理工作中，会有各种各样的报表制作需求，从简单的每日流量统计情况、到每月网络整体情况总结，亦或是突发故障分析报告，都离不开数据的呈现与展示。但现阶段在部分运营商的报表制作
+    呈现中，由于时间和技术的限制，往往还充斥着较为原始的数据罗列和单一的折线表现形式，这种表现形式除了制作者能对其中的含义能够快速清晰的了解，由于报表呈现展示的对象通常是不具备全面专业
+    知识的管理者，这些信息对他们来说不够直观清晰，理解起来较为费劲，遇见突发状况时也不能对网络情况快速做出应对，导致客户感知较差，网络管理效率较低。因此，在日常报表制作中将数据转化成
+    清晰直观恰当的图标形式会使得数据呈现效果大幅提升。
+
+    不同的图表应用于不同的场景，清晰了解不同图表的优劣势会使得制作图表时能够更加得心应手，呈现思想也会清晰直观。常用的图表形式包括：柱状图、条形图、折线图、饼图，除此之外，还有较为新颖的
+    数据地图、漏斗图、词云、散点图等。接下来就部分图表形式的使用场景进行简要概括：
+
+    \begin{enumerate}
+        \item {\bfseries 柱状图：\\}
+        适用场景：适用场合是二维数据集（每个数据点包括两个值x和y），但只有一个维度需要比较，用于显示一段时间内的数据变化或显示各项之间的比较情况。适用于枚举的数据，比如地域之间的关系，数据没有必然的连续性。\\
+        优势：柱状图利用柱子的高度，反映数据的差异，肉眼对高度差异很敏感。\\
+        劣势：柱状图的局限在于只适用中小规模的数据集。
+        \begin{generalfig}[htb]{柱状图}{fig:ZZT} 
+            \includegraphics[width = \textwidth]{Figures/ZZT.png}
+        \end{generalfig}
+        \item {\bfseries 条形图：\\}
+        适用场景：显示各个项目之间的比较情况，和柱状图类似的作用。\\
+        优势：每个条都清晰表示数据，直观。\\
+        \begin{generalfig}[htb]{条形图}{fig:TXT} 
+            \includegraphics[scale = 1]{Figures/TXT.png}
+        \end{generalfig}
+        \item {\bfseries 折线图：\\}
+        适用场景：折线图适合二维的大数据集，还适合多个二维数据集的比较。一般用来表示趋势的变化，横轴一般为日期字段。\\
+        优势：容易反应出数据变化的趋势。\\ 
+        \begin{generalfig}[htb]{折线图}{fig:ZXT} 
+            \includegraphics[width = \textwidth]{Figures/ZXT.png}
+        \end{generalfig}
+        \item {\bfseries 数据地图：\\}
+        适用场景：适用于有空间位置的数据集，能够将事件与地理位置相关联。\\ 
+        优劣势：特殊状况下使用，涉及行政区域。\\
+        \begin{generalfig}[htb]{数据地图}{fig:SJDT} 
+            \includegraphics[width = \textwidth]{Figures/SJDT.png}
+        \end{generalfig}
+    \end{enumerate}
+
+    
 
     
     
