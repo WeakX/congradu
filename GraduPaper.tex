@@ -58,6 +58,9 @@
     综上所述，基于移动通信网络的数据挖掘对于提升整个电信网络运维管理效率及质量具有较为实际以及深远的意义。在实际研究过程中，对运营商而言，
     大数据意味着对数据的获取、存储、分析、呈现等方式都提出了新的挑战，因此，如何对传统运维方式的这几个方面进行革新成为了运用大数据管理网络
     关键点。运营商希望将复杂的网络进行高效的管理，对于提升用户感知、网络优化、网络规划等多方面都具有实际的意义。
+    \begin{generalfig}[htb]{大数据信息处理框架}{fig:frame}
+		\includegraphics[width=\textwidth]{Figures/frame.png}
+	\end{generalfig}
 
     \subsection{论文内容与成果}
 
@@ -109,6 +112,34 @@
     \subsection{数据挖掘相关技术概述}
     \subsubsection{数据采集技术概述}
     
+    如\autoref{fig:frame}所示，数据采集是所有大数据应用中不可或缺的一部分，特别是在运营商本身具有多种业务系统的情况下，数据采集的挑战也变得尤为突出，其中主要包括：
+    \begin{itemize}
+		\item 数据源的多样性
+        \item 数据量的规模大、实时性要求高
+        \item 对采集可靠性的保证
+        \item 避免重复数据
+        \item 保证采集质量
+    \end{itemize}
+    为了应对以上的挑战，传统的单一采集必然不能满足需求，现如今各种大数据采集技术都选用分布式采集方式，如Apache Flume、Splunk Forwarder等，这些工具都是去中心化，同时能够保证
+    数据采集的实时性和有效性，能够较好的满足大数据采集需求，下面分别介绍这两种常用的数据采集技术。
+    \bigskip
+    \paragraph{1. Apache Flume\\}
+
+    Flume是Apache旗下的一款开源的、高可靠、可扩展、易管理的分布式数据采集系统，除此之外 Flume还具有数据预处理功能。Flume使用JRuby构建，所以需要依赖JAVA环境。Flume最初是由Cloudera的工程师开发出来想用于
+    合并日志数据的分布式系统，但随着时间的发展以及大数据趋势的来临，使得Flume逐渐发展成为了用于处理流数据事件的常用系统工具。%\cite{备注}。
+
+    \ Flume的设计是由一个一个的代理（agent）组成的代理网络作为管道，管道两端分别是数据源和目的地。每一个agent由采集器（Source）、传输通道（Channel）、及注入器（Sink）组成。
+    采集器负责接收输入数据并将数据送入传输通道；传输通道主要作用是对数据进行缓存，在传输给注入器之前对数据进行缓存，缓存方式可以根据配置文件配置成内存、文件、JDBC等；
+    注入器的作用是将数据从传输通道钟读取出来，随后发送给下一个代理或最终目的地（存储空间）。Flume在每一个agent的采集器端和注入器端都采取了transaction的机制，保证信息传输
+    安全稳定，同时Flume支持故障转移（failover）和负载均衡（load balance），当某个agent失效时并不会影响整体系统运行，这也确保了系统运行的稳定
+    和可靠性。
+    \begin{generalfig}[htb]{Flume组织架构}{fig:flume}
+        \includegraphics[width=\textwidth]{Figures/flume.png}
+    \end{generalfig}
+    \paragraph{2. Splunk Forwarder\\}
+    
+    与上文所提到Flume的开源性不同的是，Splunk作为商业化公司所提供的完整数据采集、数据分析、数据呈现的一整套解决方案。其中Forwarder负责数据的收集、清洗
+    变形并发送给
     \subsubsection{数据呈现形式应用}
     
 
