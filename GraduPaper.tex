@@ -92,6 +92,7 @@
 
     \clearpage
     \section{相关知识综述}
+
     \subsection{运营商网络运维现状介绍}
 
     现在是一个数据化的时代，也是一个移动化的时代。著名分析公司Gartner在报告中指出未来的公司都将是数据公司，现代人生活中被各种移动应用所环绕，移动网络流量
@@ -113,6 +114,12 @@
     营销。
 
     \subsection{数据挖掘相关技术概述}
+    近年来，随着人工智能、机器学习概念的火爆，数据挖掘这一词汇又重新进入了人们的视野。数据挖掘是指运用人工智能、机器学习、统计学和数据库的交叉方法在海量数据中发现特定模式或规律结论的过程。
+    数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。除了原始分析步骤，它还涉及到数据库和数据管理方面、数据预处理、模型与推断方面考量、兴趣度度量、
+    复杂度的考虑，以及发现结构、可视化及在线更新等后处理。而将数据挖掘技术引入到运营商的网络管理维护中来这一想法符合当下技术发展的潮流，也符合运营商自身发展的需求。
+    
+    数据挖掘过程往往伴随着数据采集、数据预处理、数据存储、数据分析、数据呈现等几个关键步骤，但是对于运营商来说，由于数据存储和分析都有了较为成熟的解决方案和算法，由于运营商数据的特性，所以下文就
+    数据采集技术以及数据呈现方式进行简要概述。
     \subsubsection{数据采集技术概述}
     
     如\autoref{fig:frame}所示，数据采集是所有大数据应用中不可或缺的一部分，特别是在运营商本身具有多种业务系统的情况下，数据采集的挑战也变得尤为突出，其中主要包括：
@@ -135,8 +142,8 @@
     采集器负责接收输入数据并将数据送入传输通道；传输通道主要作用是对数据进行缓存，在传输给注入器之前对数据进行缓存，缓存方式可以根据配置文件配置成内存、文件、JDBC等；
     注入器的作用是将数据从传输通道钟读取出来，随后发送给下一个代理或最终目的地（存储空间）。Flume在每一个agent的采集器端和注入器端都采取了transaction的机制，保证信息传输
     安全稳定，同时Flume支持故障转移（failover）和负载均衡（load balance），当某个agent失效时并不会影响整体系统运行，这也确保了系统运行的稳定和可靠性。
-     
-    \begin{generalfig}[htb]{Flume组织架构}{fig:flume}
+
+    \begin{generalfig}{Flume组织架构}{fig:flume}
         \includegraphics[width=\textwidth]{Figures/flume.png}
     \end{generalfig}
     \paragraph{2. Splunk Forwarder\\}
@@ -145,8 +152,8 @@
     与数据的存储；Forwarder负责数据的收集、清洗变形并发送给indexer。Splunk内置了对Syslog，TCP/UDP，Spooling的支持，同时，用户可以通过开发Script Input和Modular Input的方式来获取特定的数据。
     在Splunk提供的软件仓库里有很多成熟的数据采集应用，例如AWS，数据库（DBConnect）等等，可以方便的从云或者是数据库中获取数据进入Splunk的数据平台做分析，同时Forwarder也支持负载均衡。
     
-    \begin{generalfig}[hb]{Splunk组织架构}{fig:splunk} 
-        \includegraphics[scale = 0.55]{Figures/splunk.png}
+    \begin{generalfig}[htb]{Splunk组织架构}{fig:splunk} 
+        \includegraphics[scale = 0.4]{Figures/splunk.png}
     \end{generalfig}
 
     \subsubsection{数据图表应用场景概述}
@@ -163,31 +170,49 @@
         适用场景：适用场合是二维数据集（每个数据点包括两个值x和y），但只有一个维度需要比较，用于显示一段时间内的数据变化或显示各项之间的比较情况。适用于枚举的数据，比如地域之间的关系，数据没有必然的连续性。\\
         优势：柱状图利用柱子的高度，反映数据的差异，肉眼对高度差异很敏感。\\
         劣势：柱状图的局限在于只适用中小规模的数据集。
-        \begin{generalfig}[htb]{柱状图}{fig:ZZT} 
+        \begin{generalfig}{柱状图}{fig:ZZT} 
             \includegraphics[width = \textwidth]{Figures/ZZT.png}
         \end{generalfig}
         \item {\bfseries 条形图：\\}
         适用场景：显示各个项目之间的比较情况，和柱状图类似的作用。\\
-        优势：每个条都清晰表示数据，直观。\\
-        \begin{generalfig}[htb]{条形图}{fig:TXT} 
+        优势：每个条都清晰表示数据，直观。
+        \begin{generalfig}{条形图}{fig:TXT} 
             \includegraphics[scale = 1]{Figures/TXT.png}
         \end{generalfig}
         \item {\bfseries 折线图：\\}
         适用场景：折线图适合二维的大数据集，还适合多个二维数据集的比较。一般用来表示趋势的变化，横轴一般为日期字段。\\
-        优势：容易反应出数据变化的趋势。\\ 
-        \begin{generalfig}[htb]{折线图}{fig:ZXT} 
+        优势：容易反应出数据变化的趋势。
+        \begin{generalfig}{折线图}{fig:ZXT} 
             \includegraphics[width = \textwidth]{Figures/ZXT.png}
         \end{generalfig}
         \item {\bfseries 数据地图：\\}
         适用场景：适用于有空间位置的数据集，能够将事件与地理位置相关联。\\ 
         优劣势：特殊状况下使用，涉及行政区域。\\
-        \begin{generalfig}[htb]{数据地图}{fig:SJDT} 
+        \begin{generalfig}{数据地图}{fig:SJDT} 
             \includegraphics[width = \textwidth]{Figures/SJDT.png}
         \end{generalfig}
     \end{enumerate}
 
-    
+    \subsection{本章小结}
+    本章对关于数据挖掘在移动网络管理中的应用的相关设计技术以及运营商网络管理运维现状进行了较为概要的阐述。首先从当前运营商在移动网络时代对于自身定位以及
+    网络管理上遇到的窘境进行了描述，随后指出了传统运维的不足以及对国内外运营商针对大数据和数据挖掘所做的工作进行了简介。然后对应用于大数据和数据挖掘技术的分布式
+    数据采集技术以及数据呈现方式进行了较为详细的描述，为第三章的应用设计和实现做好技术准备。
+    \clearpage
 
+    \section{移动网络数据挖掘应用的设计与实现}
+    \subsection{系统需求分析与设计}
+    \subsection{数据采集模块的设计与实现}
+    \subsection{数据分析应用举例}
+    \subsection{数据呈现模块的设计与实现}
+    \subsection{本章小结}
+    \section{总结与展望}
+    \subsection{论文工作总结}
+    \subsection{未来工作展望}
+    \begin{thankpage}
+		感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师
+		
+		感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师感谢老师
+	\end{thankpage}
     
     
 

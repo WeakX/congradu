@@ -8,6 +8,17 @@
 \contentsline {subsection}{\numberline {2.1}运营商网络运维现状介绍}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}数据挖掘相关技术概述}{6}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}数据采集技术概述}{6}{subsubsection.2.2.1}
-\contentsline {paragraph}{1. Apache Flume\\}{6}{paragraph*.4}
+\contentsline {paragraph}{1. Apache Flume\\}{7}{paragraph*.4}
 \contentsline {paragraph}{2. Splunk Forwarder\\}{7}{paragraph*.6}
-\contentsline {subsubsection}{\numberline {2.2.2}数据图表应用场景概述}{7}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2}数据图表应用场景概述}{8}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}本章小结}{11}{subsection.2.3}
+\contentsline {section}{\numberline {3}移动网络数据挖掘应用的设计与实现}{12}{section.3}
+\contentsline {subsection}{\numberline {3.1}系统需求分析与设计}{12}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}数据采集模块的设计与实现}{12}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}数据分析应用举例}{12}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}数据呈现模块的设计与实现}{12}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}本章小结}{12}{subsection.3.5}
+\contentsline {section}{\numberline {4}总结与展望}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}论文工作总结}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}未来工作展望}{12}{subsection.4.2}
+\contentsline {section}{致谢}{13}{section*.12}
