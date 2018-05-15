@@ -201,9 +201,50 @@
 
     \section{移动网络数据挖掘应用的设计与实现}
     \subsection{系统需求分析与设计}
+    某市级运营商网络管理中心的主要功能职责包括对整个市区内的网络设备、业务、通信网络、用户服务等提供维护保障，目前包括十二类业务，业务规模包括有线业务和无线业务；除此之外还包括
+    对四大类设备的维护，分别是交换设备、数通设备、传输设备、动力设备，四大类设备下还包括各种专业设备；网络部分分为专业网与支撑网两大类共十三类网络。如此众多的维护对象，每天处理的数据
+    量必然是无比庞大的，因此需要一个大数据系统能够自动采集各类数据并进行分类存储，以供上层大数据应用分析使用，最后以直观的形式进行反馈输出。
+
+    \begin{generalfig}{十三类网络}{fig:Networks} 
+        \includegraphics[width = \textwidth]{Figures/networks.png}
+    \end{generalfig}
+
+    由于具体数据应用分析需要结合具体需求以及数据特性定制，而本文进行的只是利用大数据在运营商的网络运维管理上的尝试性探索，并不能直接拿到数据和需求进行算法设计，因此本文的重点在于需求分析以及
+    数据采集模块以及数据呈现模块的设计。
+    \subsubsection{数据源分布介绍}
+    运营商内部目前存在多个管理系统，运维人员在执行不同的运维任务时需要通过登陆不同的系统服务器进行数据下载，但是实际分析过程中可能会用到多方数据，由此挖掘数据之间潜在的关联性和规律性。单以十三类网络中的城域网
+    日常运维工作举例，需要用到的数据类型和对应系统如下表所示:
+
+    \begin{generaltab}{城域网维护工作所需数据及来源}{tab:heightweight}
+		\begin{tabularx}{\textwidth}{lCCC}
+			\toprule
+			数据类型&来源\\
+			\midrule
+			家宽、IPTV等业务在线人数&本地管理系统\\
+			端口流量利用率&省公司网管系统\\
+			IPTV地址池利用率&省公司信息系统\\
+			互联互通流量数据&流量分析系统\\
+			.... & ....\\
+			\bottomrule
+		\end{tabularx}
+    \end{generaltab}
+    
+    上表只列举了部分数据来源及系统，其中本地管理系统及流量分析系统都属于本地系统，本地系统只与本地的部分设备相连，因此本地系统的数据是不全面的，而省公司网管系统和省公司信息系统服务器架设在省公司机房，这些系统跟本地所有设备相连。
+    各级系统的组织架构如下图所示：
+
+    \begin{generalfig}{各级系统组织结构}{fig:SJYJG} 
+        \includegraphics[width = \textwidth]{Figures/SJYJG.png} 
+    \end{generalfig}
+
+    \subsubsection{系统需求分析}
+    \subsubsection{系统整体设计}
     \subsection{数据采集模块的设计与实现}
-    \subsection{数据分析应用举例}
+    \subsubsection{模块需求分析}
+    \subsubsection{模块设计与实现}
     \subsection{数据呈现模块的设计与实现}
+    \subsubsection{模块需求分析}
+    \subsubsection{模块设计与实现} 
+    \subsection{数据分析应用举例}
     \subsection{本章小结}
     \section{总结与展望}
     \subsection{论文工作总结}
