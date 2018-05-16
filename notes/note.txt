@@ -12,4 +12,4 @@
 
 对运营商情况做出假设。
 
-在前段进行数据存储GreenPlum及mysql的补充介绍。
+在前段进行数据存储GreenPlum及mysql的补充介绍。s

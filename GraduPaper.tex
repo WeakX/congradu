@@ -7,10 +7,10 @@
 \school{电子信息与通信学院}
 \classnum{通信1403班}
 \stunum{U201413500}
-\instructor{王邦}
-
+\instructor{王邦} 
+ 
 \begin{document}
-    \maketitle
+    \maketitle 
     \statement
     \clearpage
     \pagenumbering{Roman}
@@ -139,8 +139,8 @@
     \end{itemize}
     为了应对以上的挑战，传统的单一采集必然不能满足需求，现如今各种大数据采集技术都选用分布式采集方式，如Apache Flume、Splunk Forwarder等，这些工具都是去中心化，同时能够保证
     数据采集的实时性和有效性，能够较好的满足大数据采集需求，下面分别介绍这两种常用的数据采集技术。
-    \bigskip
-    {\songti \bfseries Apache Flume\\}
+
+    {\songti \bfseries Apache Flume}
 
     Flume是Apache旗下的一款开源的、高可靠、可扩展、易管理的分布式数据采集系统，除此之外 Flume还具有数据预处理功能。Flume使用JRuby构建，所以需要依赖JAVA环境。Flume最初是由Cloudera的工程师开发出来想用于
     合并日志数据的分布式系统，但随着时间的发展以及大数据趋势的来临，使得Flume逐渐发展成为了用于处理流数据事件的常用系统工具。%\cite{备注}。
@@ -153,11 +153,11 @@
     \begin{generalfig}{Flume组织架构}{fig:flume}
         \includegraphics[width=\textwidth]{Figures/flume.png}
     \end{generalfig}
-    {\songti \bfseries Splunk Forwarder\\}
+    {\songti \bfseries Splunk Forwarder}
     
-    与上文所提到Flume的开源性不同的是，Splunk作为商业化公司所提供的完整数据采集、数据分析、数据呈现的一整套解决方案。这个方案中包含三个部分：Search Head负责数据的搜索和处理；indexer负责创建数据的索引
-    与数据的存储；Forwarder负责数据的收集、清洗变形并发送给indexer。Splunk内置了对Syslog，TCP/UDP，Spooling的支持，同时，用户可以通过开发Script Input和Modular Input的方式来获取特定的数据。
-    在Splunk提供的软件仓库里有很多成熟的数据采集应用，例如AWS，数据库（DBConnect）等等，可以方便的从云或者是数据库中获取数据进入Splunk的数据平台做分析，同时Forwarder也支持负载均衡。
+    与上文所提到Flume的开源性不同的是，Splunk作为商业化公司所提供的完整数据采集、数据分析、数据呈现的一整套解决方案。这个方案中包含三个部分：Forwarder负责数据的收集和清洗、然后发送给indexer；indexer负责创建数据的索引
+    与数据的存储；Search Head负责数据的搜索和处理。Splunk内置了对日志采集，TCP/UDP，Spooling等采集方法的支持，同时，用户可以通过编写脚本和扩展模块的方式来获取特定的数据。
+    在Splunk提供的库里有很多成熟的数据采集应用，可以方便的从云端或者是数据库中获取数据然后送入进入Splunk的数据平台进行进一步分析，与此同时Forwarder也支持负载均衡，能够很好的提高稳定性。
     
     \begin{generalfig}[htb]{Splunk组织架构}{fig:splunk} 
         \includegraphics[scale = 0.4]{Figures/splunk.png}
@@ -173,11 +173,10 @@
         \includegraphics[width = \textwidth]{Figures/GreenPlum.png}
     \end{generalfig}
 
-    它的组件分成三个部分MASTER节点、SEGMENT节点以及MASTER与SEGMENT之间的高效互联技术GNET。其中MASTER和SEGMENT本身就是独立的数据库服务器。不同之处在于，MASTER只负责应用的连接，生成并拆分执行计划，
-    把执行计划分配给SEGMENT节点，以及返回最终结果给应用，它只存储一些数据库的元数据，不负责运算，因此不会成为系统性能的瓶颈。这也是GREENPLUM与传统MPP架构数据库的一个重要区别。 
-    SEGMENT节点存储用户的业务数据，并根据得到执行计划，负责处理业务数据。也就是用户关系表的数据会打散分布到每个SEGMENGT节点。当进行数据访问时，首先所有SEGMENT并行处理与自己有关的数据，
-    如果需要segment可以通过进行innterconnect进行彼此的数据交互。 segment节点越多，数据就会打的越散，处理速度就越快。因此与SHARE ALL数据库集群不同，通过增加SEGMENT节点服务器的数量，
-    GREENPLUM的性能会成线性增长。优点是查询速度快、数据装载快，且拥有非常好的可扩展性。
+    它的组件分成三个部分Master节点、segment节点、Master与segment之间的Interconnecte。其中Master和segment本身就是独立的数据库服务器。不同之处在于，MASTER只负责应用的连接，生成查询计划
+    并将计划拆分，然后下发给segment节点，Segment节点查询后的结果返回给Master节点，Master节点对返回的查询结果进行汇总，然后返回最终结果给应用，而它本身它只存储一些数据，并不负责运算，因此不会成为影响系统性能的重点。
+    这也是GREENPLUM与传统MPP架构数据库的一个重要区别。 Segment节点存储用户的业务数据，并根据得到执行计划，负责处理业务数据。也就是用户关系表的数据会打散分布到每个SEGMENGT节点。
+    当进行数据访问时，首先所有Segment并行处理与自己有关的数据，如果需要segment可以通过进行innterconnect进行彼此的数据交互。 segment节点越多，数据就会打的越散，处理速度就越快。优点是查询速度快、数据装载快，且拥有非常好的可扩展性。
 
     \subsubsection{大数据呈现技术概述}
     在运营商日常的网络管理工作中，会有各种各样的报表制作需求，从简单的每日流量统计情况、到每月网络整体情况总结，亦或是突发故障分析报告，都离不开数据的呈现与展示。但现阶段在部分运营商的报表制作
@@ -187,7 +186,7 @@
 
     {\songti \bfseries FineBI工具\\}
 
-    FineBI 提供强大的可视化图表，表格以及过滤组件，用户只需在 dashboard面板中简单拖拽操作，便能制作出丰富多样的数据可视化信息，并可以进行数据钻取，联动和过滤操作，自由地对管理过程中产生的数据进行分析和探索。
+    FineBI是一款商业智能软件工具，提供强大的可视化图表，表格以及过滤组件，用户只需在操作面板中简单拖拽，就可以绘制各种样式的精美图表，并可以进行数据钻取，联动和过滤操作，能够对输入的数据进行快速直观的展现。
     该工具还提出了极具实用价值的业务数据包概念，借助业务数据包我们可以轻松实现按照业务对数据进行分类、管理和权限配置。业务数据包是 FineBI 多维数据库在前端的映射，通过业务包的创建和设置，使得多维数据库和业务分析需求的衔接更加紧密自然。
     \begin{generalfig}[htb]{FineBI}{fig:FineBI} 
         \includegraphics[scale = 0.4]{Figures/FineBI.png}
@@ -326,10 +325,8 @@
     print(name)             \qquad \# 打印文件名字  \\
     path = 'E:/ftp/data/' + name    \qquad \# 文件保存路径  \\
     f = open(path,'wb')         \qquad \# 打开要保存文件  \\
-    filename = 'PRE ' + name   \qquad \# 保存FTP文件  \\
-    ftp.retrbinary(filename,f.write) \qquad \# 保存FTP上的文件  \\
-    ftp.delete(name)            \qquad \# 删除FTP文件  \\
-    ftp.storbinary('STOR '+filename, open(path, 'rb')) \qquad \# 上传FTP文件  \\
+    filename = 'PRE ' + name   \qquad \# 对下载文件重命名 \\
+    ftp.retrbinary(filename,f.write) \qquad \# 下载保存FTP上的文件  \\
     ftp.quit()                  \qquad \# 退出FTP服务器  
     }
     

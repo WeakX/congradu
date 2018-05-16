@@ -19,12 +19,12 @@
 \contentsline {subsection}{\numberline {3.2}数据采集及存储部分的设计与实现}{15}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}具体需求分析}{15}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}设计与实现}{15}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}数据呈现部分的设计与实现}{18}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}具体需求分析}{18}{subsubsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3}数据呈现部分的设计与实现}{19}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}具体需求分析}{19}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}设计与实现}{19}{subsubsection.3.3.2}
-\contentsline {subsection}{\numberline {3.4}数据分析应用举例}{23}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}本章小结}{24}{subsection.3.5}
-\contentsline {section}{\numberline {4}总结与展望}{25}{section.4}
-\contentsline {subsection}{\numberline {4.1}论文工作总结}{25}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}未来工作展望}{25}{subsection.4.2}
-\contentsline {section}{致谢}{26}{section*.24}
+\contentsline {subsection}{\numberline {3.4}数据分析应用举例}{24}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}本章小结}{25}{subsection.3.5}
+\contentsline {section}{\numberline {4}总结与展望}{26}{section.4}
+\contentsline {subsection}{\numberline {4.1}论文工作总结}{26}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}未来工作展望}{26}{subsection.4.2}
+\contentsline {section}{致谢}{27}{section*.24}
