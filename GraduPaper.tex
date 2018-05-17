@@ -30,7 +30,7 @@
     \end{cnabstract}
     \begin{enabstract}{Mobile network;Data mining;Big data}
         With the rapid development of the mobile Internet, the emergence of new-generation information technologies such as cloud computing, 
-        5G, and the Internet of Things is marking the arrival of the era of big data.When it conmes to telecom operatpors,the rapid growth of data size means the challenges of data collection,
+        5G, and the Internet of Things is marking the arrival of the era of big data.When it comes to telecom operators,the rapid growth of data size means the challenges of data collection,
         analysis, storage, and other aspects. On the other hand, it is also an important opportunity for operators to transform themselves and avoid pipelines in the era of mobile Internet.
 
         Operators use big data and data mining technologies to obtain potential information from massive data with low information density. 
@@ -183,13 +183,13 @@
     GREENPLUM是一个关系型数据库集群. 是由多个独立的数据库服务组合而成的逻辑数据库。与RAC不同，这种数据库集群采取的是MPP（Massive Parallel Processing 即大规模并行处理）架构。如下图所示
 
     \begin{generalfig}[htb]{GreenPlum架构}{fig:GreenPlum} 
-        \includegraphics[width = \textwidth]{Figures/GreenPlum.png}
+        \includegraphics[width = \textwidth]{Figures/GreenPlum.png} 
     \end{generalfig}
 
     它的组件分成三个部分Master节点、segment节点、Master与segment之间的Interconnecte。其中Master和segment本身就是独立的数据库服务器。不同之处在于，MASTER只负责应用的连接，生成查询计划
     并将计划拆分，然后下发给segment节点，Segment节点查询后的结果返回给Master节点，Master节点对返回的查询结果进行汇总，然后返回最终结果给应用，而它本身它只存储一些数据，并不负责运算，因此不会成为影响系统性能的重点。
     这也是GREENPLUM与传统MPP架构数据库的一个重要区别。 Segment节点存储用户的业务数据，并根据得到执行计划，负责处理业务数据。也就是用户关系表的数据会打散分布到每个SEGMENGT节点。
-    当进行数据访问时，首先所有Segment并行处理与自己有关的数据，如果需要segment可以通过进行innterconnect进行彼此的数据交互。 segment节点越多，数据就会打的越散，处理速度就越快。优点是查询速度快、数据装载快，且拥有非常好的可扩展性。
+    当进行数据访问时，首先所有Segment并行处理与自己有关的数据，如果需要segment可以通过进行interconnect进行彼此的数据交互。 segment节点越多，数据就会打的越散，处理速度就越快。优点是查询速度快、数据装载快，且拥有非常好的可扩展性。
 
     \subsubsection{大数据呈现技术概述}
     在运营商日常的网络管理工作中，会有各种各样的报表制作需求，从简单的每日流量统计情况、到每月网络整体情况总结，亦或是突发故障分析报告，都离不开数据的呈现与展示。但现阶段在部分运营商的报表制作
