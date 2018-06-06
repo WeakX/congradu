@@ -3,17 +3,18 @@
 \documentclass{HustGraduPaper}
 \title{移动网络数据挖掘的研究与应用}
 \author{徐聪}
-\date{\today}
+\date{2018 年 5月 20 日}
 \school{电子信息与通信学院}
 \classnum{通信1403班}
 \stunum{U201413500} 
 \instructor{王邦} 
  
 \begin{document}
-    \maketitle 
+    \maketitle  
+    \clearpage
     \statement
     \clearpage
-    \pagenumbering{Roman}
+    \pagenumbering{Roman} 
 
     \begin{cnabstract}{移动网络；数据挖掘；大数据}
         随着移动互联网的迅猛发展，云计算、5G、物联网等新一代信息技术的涌现，都在标志着大数据时代的到来。而对电信运营商来说，数据规模的快速增长一方面意味着数据采集、分析、存储等各方面的挑战，另一方面也是运营商
@@ -23,7 +24,7 @@
         力。文章先介绍了当前国内部分运营商在大数据时代下的窘境与困惑，再提出进行大数据建设能够改善运营商网络管理的现状并能使网络管理面向未来发展，随后介绍了常用的大数据采集、存储、呈现等技术，为真正的实现做了一定
         的准备工作。
         
-        本文的工作重点在于就运营商在大数据时代进行运用大数据及数据挖掘技术改变传统网络运维管理模式进行了探索性的尝试，包括在数据采集、存储、呈现等方面给出了较为可靠的实现方式，同时还就数据挖掘技术如何在KPI监控场景中发挥作用
+        本文的工作重点在于就运营商在大数据时代进行运用大数据及数据挖掘技术改变传统网络运维管理模式进行了尝试性的探索，包括在数据采集、存储、呈现等方面给出了较为可靠的实现方式，同时还就数据挖掘技术如何在KPI监控场景中发挥作用
         给出了一种合理的思路。
 
 
@@ -389,44 +390,55 @@
     根据数据呈现功能的需求分析以及第二章中关于数据呈现技术的介绍，最终选择借助FineBI工具进行前端数据呈现，数据包与视图的关系大致如下图：
 
     \begin{generalfig}{数据呈现功能架构}{fig:SJCX} 
-        \includegraphics[width = \textwidth]{Figures/SJCX.png} 
+        \includegraphics[scale = 0.5]{Figures/SJCX.png} 
     \end{generalfig}
+
+    \clearpage
 
     通过以创建设备视图为例来描述过程，具体实现方法：\\
     1. 在数据配置面板创建新业务包，并选择类型为FineIndex。\\
-    2. 在业务包中上传数据表格，并将表中外键与其他表进行关联。 \\
-
+    2. 在业务包中上传数据表格，并将表中外键与其他表进行关联。 \\ 
+    
     \begin{generalfig}{业务包内各表关联}{fig:GBGL} 
         \includegraphics[width = \textwidth]{Figures/GBGL.png} 
     \end{generalfig}
-
+    
     3. 对FineIndex进行更新。\\
     4. 回到仪表盘创建新的仪表盘并命名为设备视图。\\
     5. 在左侧图标栏选择合适的图表形式，并从业务包中选择数据填充。\\
+   
     \begin{generalfig}{各种图表形式}{fig:TBXS} 
         \includegraphics[scale = 0.5]{Figures/TBXS.png} 
     \end{generalfig}
 
     其他视图创建过程与此类似，最终完成的五大视图分别如图所示：
+    \clearpage
 
     \begin{generalfig}{全景视图}{fig:QJST} 
-        \includegraphics[width = \textwidth]{Figures/QJST.png} 
+        \includegraphics[scale = 0.22]{Figures/QJST.png} 
     \end{generalfig}
+    
+    ~\\
 
     \begin{generalfig}{设备视图}{fig:SBST} 
-        \includegraphics[width = \textwidth]{Figures/SBST.png} 
+        \includegraphics[scale = 0.22]{Figures/SBST.png} 
     \end{generalfig}
+    ~\\
 
-    \begin{generalfig}{业务试图}{fig:YWST} 
-        \includegraphics[width = \textwidth]{Figures/YWST.png} 
+    \begin{generalfig}{业务视图}{fig:YWST} 
+        \includegraphics[scale = 0.22]{Figures/YWST.png} 
     \end{generalfig}
+     
+
+    \clearpage
 
     \begin{generalfig}{用户视图}{fig:YHST} 
-        \includegraphics[width = \textwidth]{Figures/YHST.png} 
+        \includegraphics[scale = 0.22]{Figures/YHST.png} 
     \end{generalfig}
+    ~\\
 
     \begin{generalfig}{网络视图}{fig:WLST} 
-        \includegraphics[width = \textwidth]{Figures/WLST.png} 
+        \includegraphics[scale = 0.22]{Figures/WLST.png} 
     \end{generalfig}
 
 
@@ -448,7 +460,7 @@
     一种解决思路如下图所示：
 
     \begin{generalfig}{异常检测解决方法}{fig:JJFF} 
-        \includegraphics[width = \textwidth]{Figures/JJFF.png} 
+        \includegraphics[scale = 0.3]{Figures/JJFF.png} 
     \end{generalfig}
 
     \subsection{本章小结}
